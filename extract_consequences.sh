@@ -1,0 +1,1 @@
+bcftools +split-vep aggCOVID_v5_sites_chr22_annot.vcf -f '%ID %Consequence %SYMBOL %IMPACT %LoF %CANONICAL %CADD_phred\n' -s primary:missense+ > variant_selection_chr22.txt
