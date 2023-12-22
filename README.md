@@ -13,7 +13,7 @@ We describe below our phenotype definition and Quality control procedure to be r
 
 We then provide a multi-step procedure to annotate variants and run REGENIE in order to align with our analytical approach.
 
-<!-- TOC start -->
+<!-- TOC start (generated with https://github.com/derlin/bitdowntoc) -->
 
 - [Software, storage and compute requirements](#software-storage-and-compute-requirements)
    * [Software](#software)
@@ -44,7 +44,7 @@ We then provide a multi-step procedure to annotate variants and run REGENIE in o
 Start by cloning the repository:
 
 ```
-git clone https://gitlab.com/genomicsengland/genomics_england_publications/COVID19_GenOMICC_AVT_analysis.git
+git clone https://github.com/genomicsengland/COVID19_GenOMICC_AVT_analysis.git
 ```
 
 ### Software
