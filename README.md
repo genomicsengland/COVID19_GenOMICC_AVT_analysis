@@ -259,9 +259,9 @@ ${repo}
 Regenie step 1 uses high quality independent SNPs from across the genome to fit a whole genome regression model to capture polygenic effects. It aims to account for confounders such as population stratification.
 
 You should have:
-* HQSNPs: a plink bed/bim/fam or pgen/psam/pvar file with >50K high quality independent common SNPs from across all autosomes (chr 1-22).
-* phenoFile: a file with columns for the sample IDs and the phenotype as a 0/1 indicator for controls/cases. https://rgcgithub.github.io/regenie/options/#phenotype-file-format
-* covarFile: a file with the covariates: age, sex, age^2, age*sex, PC1-PC10 (common variants), PC1-PC10 (rare variants). https://rgcgithub.github.io/regenie/options/#covariate-file-format
+* **HQSNPs**: a plink bed/bim/fam or pgen/psam/pvar file with >50K high quality independent common SNPs from across all autosomes (chr 1-22).
+* **phenoFile**: a file with columns for the sample IDs and the phenotype as a 0/1 indicator for controls/cases. See here for phenoFile format: https://rgcgithub.github.io/regenie/options/#phenotype-file-format
+* **covarFile**: a file with the covariates: age, sex, age^2, age*sex, PC1-PC10 (common variants), PC1-PC10 (rare variants). Principal components (PCs) should be population-specific. See here for covariate format: https://rgcgithub.github.io/regenie/options/#covariate-file-format
 
 You can then run REGENIE step 1 with the following script (runs a container), that takes four arguments:
 
@@ -296,8 +296,8 @@ We have set up REGENIE to perform the burden, SKAT and ACAT-V tests and combine 
 We used variants with maf < 0.005 before testing and --aaf-bins option was set to 0.005. We do not use multiple aaf-bins for testing.
 
 Before running this step, you should have:
-* predfit: regression model fit file from REGENIE step 1.
-* pgenfile_test: File in bed/bim/fam or pgen/psam/pvar format containing the quality control filtered genotype data to be tested
+* **predfit**: regression model fit file from REGENIE step 1.
+* **pgenfile_test**: File in bed/bim/fam or pgen/psam/pvar format containing the quality control filtered genotype data to be tested
 
 You can then run REGENIE step 2 with the following script (runs a container), that takes six arguments:
 
