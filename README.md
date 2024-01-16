@@ -85,8 +85,8 @@ In the provided scripts we are setting up Docker to mount the current directory 
 ## Phenotype definition
 We use a single endpoint, with cases being COVID-19 positive critically ill patients as assessed by their treating clinician and controls being COVID-19 positive individuals with mild symptoms supplemented with individuals from the 100K genomes project.
 
-The most similar phenotype definition from HGI is phenotype C:
-Severe Covid-19 (A2 in Covid-19 HGI):
+The most similar phenotype definition from HGI:
+Severe Covid-19 (Phenotype A2 in Covid-19 HGI):
 * Cases: laboratory confirmed Covid-19 with one or more of the following outcomes:
     Death
     ECMO requirement
