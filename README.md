@@ -114,6 +114,8 @@ For chrX, we masked females as for autosomes. We masked male genotypes having DP
 
 After masking, we removed variant sites with missingness > 5%. 
 
+We have added code for reproducing our masking procedure. See README under auxiliary_QC folder in repo for more details.
+
 ### Sample-QC
 We employed the sample QC protocol from Kousathanas et al. (2022) by removing samples that failed four BAM-level quality control filters: freemix contamination > 3%, mean autosomal coverage < 25×, per cent mapped reads < 90% or per cent chimeric reads > 5%. We also computed additional metrics: ratio of heterozygous to homozygous genotypes, ratio of insertions to deletions, ratio of transitions to transversions, total deletions, total insertions, total heterozygous SNPs, total homozygous SNPs, total transitions and total transversions. We required that samples were within 4 median absolute deviations (MADs) of the median of each of these statistics and removed outliers.
 
