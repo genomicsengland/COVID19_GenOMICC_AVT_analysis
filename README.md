@@ -325,7 +325,7 @@ The runs should be across phenotypes and across chromosomes 1-22 and chrX.
 
 ### Running REGENIE for small sample sizes
 
-In this case step 1 is skipped and only step 2 is run. The script requires one less option as prediction files are not generated nor used. Within REGIENE the added option is "--ignore-pred"
+In this case step 1 is skipped and only step 2 is run. The script requires one less option as prediction files are not generated nor used. Within REGENIE the added option is "--ignore-pred"
 
 ```
 repo=${PWD}/COVID19_GenOMICC_AVT_analysis
