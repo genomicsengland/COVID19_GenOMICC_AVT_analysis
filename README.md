@@ -31,9 +31,11 @@ We then provide a multi-step procedure to annotate variants and run REGENIE in o
    * [Annotate all variants](#annotate-all-variants)
 - [Step 3: Generate REGENIE mask files](#step-3-generate-regenie-mask-files)
 - [Step 4: Run REGENIE step 1](#step-4-run-regenie-step-1)
+   * [Note: Skipping REGENIE step 1 in very small cohorts](#note-skipping-regenie-step-1-in-very-small-cohorts)
 - [Step 5: Run REGENIE step 2](#step-5-run-regenie-step-2)
    * [Recoding of ref/alt alleles for genomic files (optional)](#recoding-of-refalt-alleles-for-genomic-files-optional)
    * [Running REGENIE step 2](#running-regenie-step-2)
+   * [Running REGENIE for small sample sizes](#running-regenie-for-small-sample-sizes)
 - [Summary statistics sharing](#summary-statistics-sharing)
 
 <!-- TOC end -->
@@ -280,6 +282,12 @@ output_prefix specifies the prefix for output files.
 
 The runs should be once per phenotype tested.
 
+### Note: Skipping REGENIE step 1 in very small cohorts
+Note:
+Regenie can introduce noise when step 1 is run in small cohorts (e.g., N<1000) (see https://github.com/rgcgithub/regenie/issues/305 or https://pubmed.ncbi.nlm.nih.gov/36212134) or even fail to converge. 
+
+If step 1 fails to converge due to sample sizes being too small we recommend skipping step 1 and continue to step 2 (see relevant section for small sample sizes). Please only do this when the samples are unrelated (remove pairs with relatedness coefficient >0.125) and principal components are added as covariates.
+
 ## Step 5: Run REGENIE step 2
 <hr> 
 
@@ -291,7 +299,6 @@ To overcome this, we used plink2 option **--maj-ref force** to recode the geneti
 As we dont expect this step to have a major influence on the results, we leave it to the individual analysts to decide whether to include this step.
 
 ### Running REGENIE step 2
-
 REGENIE step 2 conditions on the "null" prediction model from step 1 and then performs several aggregate burden tests. 
 We have set up REGENIE to perform the burden, SKAT and ACAT-V tests and combine the P-values of these tests with an omnibus ACAT-O test, for each mask separately.
 
@@ -314,8 +321,22 @@ ${phenoFile} \
 ${annot_prefix} \
 ${output_prefix}
 ```
-
 The runs should be across phenotypes and across chromosomes 1-22 and chrX.
+
+### Running REGENIE for small sample sizes
+
+In this case step 1 is skipped and only step 2 is run. The script requires one less option as prediction files are not generated nor used. Within REGIENE the added option is "--ignore-pred"
+
+```
+repo=${PWD}/COVID19_GenOMICC_AVT_analysis
+
+sh ${repo}/run_regenie_step2_smallsamplesizes.sh \
+${pgenfile_test} \
+${covarFile} \
+${phenoFile} \
+${annot_prefix} \
+${output_prefix}
+```
 
 ## Summary statistics sharing
 
