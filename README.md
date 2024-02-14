@@ -202,6 +202,12 @@ ${aux_data}
 
 Run script in parallel across chromosomes. If running on a cluster, make sure to load all necessary modules for required software. Internet connectivity is required to pull Docker containers.
 
+NOTE 14/02/2024: 
+Auxiliary file references_GRCh38_v1.6.cfg can be found here:
+https://github.com/kircherlab/CADD-scripts/blob/master/config/references_GRCh38_v1.6.cfg
+Download to working directory before running CADD_indel_annot_master.sh. It needs editing of the header for the rootdir, annotdir and reference to point to the respective directories that you have stored the data.
+
+
 ### Annotate all variants
 
 Then you proceed to fully annotate all variant sites with VEP version 105 with additional plugins LOFTEE and CADD. 
