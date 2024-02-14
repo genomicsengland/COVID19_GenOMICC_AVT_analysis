@@ -8,7 +8,7 @@ repo=$3
 #Extract header from annotation file and append to consequences output
 echo "ID" > ${output_prefix}_conseq_header1.txt
 bcftools +split-vep ${input} -l|cut -f 2 >> ${output_prefix}_conseq_header1.txt
-cat ${output_prefix}_conseq_header.txt|tr '\n' '\t'|sed 's/.$//' > ${output_prefix}_conseq_header2.tsv
+cat ${output_prefix}_conseq_header1.txt|tr '\n' '\t'|sed 's/.$//' > ${output_prefix}_conseq_header2.tsv
 echo "$(cat ${output_prefix}_conseq_header2.tsv)" > ${output_prefix}_conseq.tsv
 
 #remove header intermediate files
