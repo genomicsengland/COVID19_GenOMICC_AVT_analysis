@@ -25,7 +25,7 @@ filter(CADD_PHRED>=10)%>%
 select(ID, SYMBOL)%>%
 mutate(consequence="missense")
 
-annodata<-rbind(lof,missense)
+annodata<-rbind(lof,missense)%>%distinct()
 
 #Write annotation file
 fwrite(annodata, file=paste0(output_prefix,".annotations"), sep='\t', col.names=FALSE)
