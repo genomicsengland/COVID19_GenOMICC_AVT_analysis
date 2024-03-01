@@ -193,6 +193,10 @@ output_prefix=${prefix}_indels_cadd
 repo=${PWD}/COVID19_GenOMICC_AVT_analysis
 aux_data=${PWD}/vep_data
 
+#Edit the references cfg file as detailed below to point to appropriate paths
+cp ${repo}/aux_resources/references_GRCh38_v1.6.cfg .
+cp ${aux_data}/hg38.fa ${aux_data}/GRCh38_v1.6/reference/hg38.fa
+
 sh ${repo}/CADD_indel_annot_master.sh \
 ${prefix} \
 ${output_prefix} \
@@ -211,7 +215,7 @@ to work, it needs to be slightly adapted:
 * copying the reference genome that matches the reference file that was used 
 * editing of the header for the rootdir, annotdir and reference to point to the respective directories that you have stored this data.
 
-we have added an **example references_GRCh38_v1.6.cfg** file in aux_resources folder, where we assume that the annotation data is stored in vep_data folder and the reference genome has been copied over to vep_data//GRCh38_v1.6/reference/hg38.fa.
+we have added an example **references_GRCh38_v1.6.cfg** file in aux_resources folder, where we assume that the annotation data is stored in vep_data folder and the reference genome has been copied over to vep_data//GRCh38_v1.6/reference/hg38.fa.
 
 ### Annotate all variants
 
