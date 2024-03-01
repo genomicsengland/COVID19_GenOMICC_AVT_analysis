@@ -202,11 +202,16 @@ ${aux_data}
 
 Run script in parallel across chromosomes. If running on a cluster, make sure to load all necessary modules for required software. Internet connectivity is required to pull Docker containers.
 
-NOTE 14/02/2024: 
-Auxiliary file references_GRCh38_v1.6.cfg can be found here:
+NOTE 01/03/2024: 
+Source auxiliary file references_GRCh38_v1.6.cfg was sourced from here:
 https://github.com/kircherlab/CADD-scripts/blob/master/config/references_GRCh38_v1.6.cfg
-Download to working directory before running CADD_indel_annot_master.sh. It needs editing of the header for the rootdir, annotdir and reference to point to the respective directories that you have stored the data.
 
+to work, it needs to be slightly adapted:
+* setting "roottype = null"
+* copying the reference genome that matches the reference file that was used 
+* editing of the header for the rootdir, annotdir and reference to point to the respective directories that you have stored this data.
+
+we have added an **example references_GRCh38_v1.6.cfg** file in aux_resources folder, where we assume that the annotation data is stored in vep_data folder and the reference genome has been copied over to vep_data//GRCh38_v1.6/reference/hg38.fa.
 
 ### Annotate all variants
 
